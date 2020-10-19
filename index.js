@@ -38,7 +38,7 @@ async function replicateTable (tableName, primaryKeyField, targetDb, sqlPool, co
                 });
             }
             else {
-                row._id = row[primaryKeyField]
+                row._id = isNaN(row[primaryKeyField])? row[primaryKeyField] : Number(row[primaryKeyField])
             }
             delete row[primaryKeyField];    
 
