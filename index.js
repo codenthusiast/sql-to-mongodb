@@ -3,8 +3,15 @@
 const mongodb = require('mongodb');
 const sql = require('mssql');
 const E = require('linq');
+const args = require('yargs').argv;
 
-const config = require("./config.js");
+const config = {
+    sqlConnectionString: args.sqlConnectionString,
+    mongoConnectionString: args.mongoConnectionString,
+    targetDatabaseName: args.targetDatabaseName,
+    skip: args.skip.split(','),
+    remapKeys: args.remapKeys != undefined
+}
 
 //
 // Replicate an entire SQL table to MongoDB.
