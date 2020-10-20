@@ -6,11 +6,11 @@ const E = require('linq');
 const args = require('yargs').argv;
 
 const config = {
-    sqlConnectionString: args.sqlConnectionString,
-    mongoConnectionString: args.mongoConnectionString,
-    targetDatabaseName: args.targetDatabaseName,
-    skip: args.skip.split(','),
-    remapKeys: args.remapKeys != undefined
+    sqlConnectionString: process.env.SQL_CONNECTION_STRING,
+    mongoConnectionString: process.env.MONGODB_CONNECTION_STRING,
+    targetDatabaseName: process.env.TARGET_DATABASE_NAME,
+    skip: process.env.SKIP_TABLES.split(','),
+    remapKeys: false
 }
 
 //
