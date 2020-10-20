@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Execute') { 
             steps {
-                sh 'node index.js --sqlConnectionString="Data Source=host.docker.internal:1443;User Id=gafar.popoola;Password=Password@123;Initial Catalog=IdentityServer;Integrated Security=True" --mongoConnectionString="mongodb://host.docker.internal:27017" --targetDatabaseName="IdentityServer2" --skip="Consents,Tokens" --remapKeys' 
+                sh '$source' 
             }
         }
     }
